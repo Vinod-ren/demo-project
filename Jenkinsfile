@@ -3,7 +3,8 @@ pipeline{
   stages{
     stage('code checkout'){
       steps {
-sh 'echo hi'      }
+        git branch: 'master', url:'https://github.com/devvikasmanda/demo-project.git'
+      }
     } 
   }
 }
