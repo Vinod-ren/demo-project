@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('code checkout'){
       steps {
-        git clone rep
+        git clone repfdf
       }
       }
   
