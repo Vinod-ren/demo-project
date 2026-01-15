@@ -5,8 +5,7 @@ pipeline{
       steps {
         git clone repfdf
       }
-      }
-  
-  
-}      
     }
+  }
+}
+     
