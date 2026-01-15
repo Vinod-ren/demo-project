@@ -3,8 +3,7 @@ pipeline{
   stages{
     stage('code checkout'){
       steps {
-        git clone repfdf
-      }
+sh 'echo hi'      }
     }
   }
 }
