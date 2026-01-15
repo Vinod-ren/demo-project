@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('code checkout'){
       steps {
-        git clone now
+        git clone repo
       }
       }
   
