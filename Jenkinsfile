@@ -4,7 +4,7 @@ pipeline{
     stage('code checkout'){
       steps {
 sh 'echo hi'      }
-    }
+    } 
   }
 }
      
