@@ -6,7 +6,7 @@ pipeline{
         git branch: 'master', url:'https://github.com/devvikasmanda/demo-project.git'
       }
     }
-    stage('mvn install again'){
+    stage('mvn install aagain'){
       steps {
         sh 'mvn clean install'
       }
