@@ -7,7 +7,7 @@ pipeline{
       }
     } 
     stage('mvn install aagain'){ 
-          steps {
+          steps {  
         sh 'mvn clean install'
       }
     }
