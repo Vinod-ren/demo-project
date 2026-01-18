@@ -6,11 +6,16 @@ pipeline{
         git branch: 'Vinod_feature', url:'https://github.com/devvikasmanda/demo-project.git'
       }
     } 
-    stage('mvn install aagain'){ 
-          steps {  
-        sh 'mvn clean install'
-      }
-    }
+    stage ('maven build'){
+            steps{
+                sh 'mvn clean install'
+            }
+        }
+        stage ('code coverage'){
+            steps{
+                sh 'mvn site'
+            }
+        }
   } 
 }
      
