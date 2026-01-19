@@ -52,7 +52,7 @@ stage('Artifactory_upload') {
                             spec: '''{
                                 "files": [{
                                     "pattern": "*.jar",
-                                    "target": "Vinod/"
+                                    "target": "example-repo-local/"
                                 }]
                             }'''
                         )
