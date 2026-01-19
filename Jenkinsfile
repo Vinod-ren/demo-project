@@ -61,7 +61,7 @@ stage('Artifactory_upload') {
             }
         }
     }
-}
+} 
 
 
      
