@@ -10,56 +10,6 @@ pipeline {
             }
         }
 
-        stage('maven build') {
-            steps {
-                sh 'mvn clean install'
-            }
-        }
-
-        stage('code coverage') {
-            steps {
-                sh 'mvn site'
-            }
-        }
-
-        stage('sonarqube code analysis') {
-            steps {
-                withSonarQubeEnv('my_sonar') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-
-        stage('quality gate') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    script {
-                        def check = waitForQualityGate()
-                        if (check.status != 'OK') {
-                            error "Pipeline aborted due to Quality Gate failure: ${check.status}"
-                        }
-                    }
-                }
-            }
-        }
-stage('Artifactory_upload') {
-            steps {
-                script {
-                    def server = rtServer(id: 'jfrog1')
-                    dir('./server/target/') {
-                        rtUpload(
-                            serverId: 'jfrog1',
-                            spec: '''{
-                                "files": [{
-                                    "pattern": "*.jar",
-                                    "target": "example-repo-local/"
-                                }]
-                            }'''
-                        )
-                    }
-                }
-            }
-        }
     }
 } 
 
