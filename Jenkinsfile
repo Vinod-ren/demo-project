@@ -36,8 +36,6 @@ pipeline{
                 error "pipeline aborted due to quality gate failure : ${check.status}"}}
             } 
     }
-}
-
   } 
-}
+
      
