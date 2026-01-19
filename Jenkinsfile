@@ -19,6 +19,26 @@ pipeline {
                 sh 'mvn site'
             }
         }
+        stage('sonarqube code analysis') {
+            steps {
+                withSonarQubeEnv('my_sonar') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+        stage('quality gates') {
+            steps {
+                script {
+                    // This waits for SonarQube to report back the status
+                    timeout(time: 1, unit: 'MINUTES') {
+                        def check = waitForQualityGate()
+                        if (check.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${check.status}"
+                        }
+                    }
+                }
+            }
+        }
     }
 } 
 
