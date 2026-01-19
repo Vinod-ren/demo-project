@@ -9,7 +9,6 @@ pipeline {
                     url: 'https://github.com/devvikasmanda/demo-project.git'
             }
         }
-
     }
 } 
 
