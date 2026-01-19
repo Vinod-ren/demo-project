@@ -42,6 +42,24 @@ pipeline {
                 }
             }
         }
+stage('Artifactory_upload') {
+            steps {
+                script {
+                    def server = rtServer(id: 'jfrog')
+                    dir('./server/target/') {
+                        rtUpload(
+                            serverId: 'jfrog',
+                            spec: '''{
+                                "files": [{
+                                    "pattern": "*.jar",
+                                    "target": "vikas/"
+                                }]
+                            }'''
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 
