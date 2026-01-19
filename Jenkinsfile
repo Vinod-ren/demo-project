@@ -45,14 +45,14 @@ pipeline {
 stage('Artifactory_upload') {
             steps {
                 script {
-                    def server = rtServer(id: 'jfrog')
+                    def server = rtServer(id: 'jfrog1')
                     dir('./server/target/') {
                         rtUpload(
-                            serverId: 'jfrog',
+                            serverId: 'jfrog1',
                             spec: '''{
                                 "files": [{
                                     "pattern": "*.jar",
-                                    "target": "vikas/"
+                                    "target": "Vinod/"
                                 }]
                             }'''
                         )
