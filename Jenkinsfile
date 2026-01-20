@@ -1,5 +1,5 @@
 pipeline {
-    agent slave1
+    agent slave
    stages { 
         stage('code checkout') {
             steps {
@@ -7,4 +7,4 @@ pipeline {
             }
         }
    }
-} 
+}
