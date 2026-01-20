@@ -1,5 +1,5 @@
 pipeline {
-    agent { lable 'dev' }
+    agent any
     stages { 
         stage('code checkout') {
             steps {
