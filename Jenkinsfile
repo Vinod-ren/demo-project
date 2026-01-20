@@ -1,10 +1,10 @@
 pipeline {
-    agent {lable 'dev'}
-   stages { 
+    agent any
+    stages { 
         stage('code checkout') {
             steps {
-                git branch: 'Vinod_feature', url: 'https://github.com/devvikasmanda/demo-project.git'
+                git branch: 'master', url: 'https://github.com/devvikasmanda/demo-project.git'
             }
         }
-   }
+    }
 }
