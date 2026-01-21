@@ -33,7 +33,7 @@ pipeline {
                             error "Pipeline aborted due to quality gate failure: ${check.status}"
                         }
                     }
-                }
+                } 
             }
         }
         stage('Artifactory_upload') {
